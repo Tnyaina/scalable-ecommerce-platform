@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import '@assets/css/Logout.css';
 
 const Logout = () => {
     const { logout } = useAuth();
@@ -14,7 +15,16 @@ const Logout = () => {
         performLogout();
     }, [logout, navigate]);
 
-    return <div>Déconnexion en cours...</div>;
+    return (
+        <div className="logout-screen">
+            <div className="logout-card">
+                <div className="logout-spinner">
+                    <span />
+                </div>
+                <p className="logout-label">Déconnexion en cours…</p>
+            </div>
+        </div>
+    );
 };
 
 export default Logout;
